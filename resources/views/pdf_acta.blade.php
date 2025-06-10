@@ -79,23 +79,33 @@
         </tr>
         @endforeach
         @if(!is_null($acta->detalles))
-            @if(count($acta->detalles) < 20)
-                @for($i=count($acta->detalles); $i <=25; $i++)
-                    <tr>
-                    <td class="celda1"> </td>
-                    <td class="celda2"> </td>
-                    <td class="celda2"> </td>
-                    <td class="celda1"> </td>
-                    </tr>
+        @if(count($acta->detalles) < 20)
+            @for($i=count($acta->detalles); $i <=25; $i++)
+                <tr>
+                <td class="celda1"> </td>
+                <td class="celda2"> </td>
+                <td class="celda2"> </td>
+                <td class="celda1"> </td>
+                </tr>
                 @endfor
-            @endif
-        @endif
+                @endif
+                @endif
     </table>
 
-    <p><strong>Subtotal 15%:</strong> $ 0</p>
-    <p><strong>Subtotal 0%:</strong> ${{ $acta->total }}</p>
-    <p><strong>Total Final:</strong> ${{ $acta->total }}</p>
-    <br><br>
+    <table style="width: 40%; margin-left: auto; text-align: right;">
+        <tr>
+            <td><strong>Subtotal 15%:</strong></td>
+            <td>$ 0.00</td>
+        </tr>
+        <tr>
+            <td><strong>Subtotal 0%:</strong></td>
+            <td>$ {{ number_format($acta->total, 2) }}</td>
+        </tr>
+        <tr>
+            <td><strong>Total Final:</strong></td>
+            <td><strong>$ {{ number_format($acta->total, 2) }}</strong></td>
+        </tr>
+    </table><br><br>
     <table>
         <tr>
             <td style="text-align: left !important; "><span>Firma Autorizada: ____________________</span></td>
